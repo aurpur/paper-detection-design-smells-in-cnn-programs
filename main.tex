@@ -1,0 +1,94 @@
+\documentclass[10pt, conference]{IEEEtran}
+\usepackage[english]{babel}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{epsfig}
+\usepackage{array, colortbl}
+\usepackage{listings}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage{rotating}
+%\usepackage{subfigure}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage[obeyspaces,hyphens,spaces]{url}
+\usepackage{balance}
+\usepackage{fancybox}
+\usepackage{scalefnt}
+\usepackage[normalem]{ulem}
+%\pagestyle{plain}
+\pagenumbering{arabic}
+\pagestyle{empty}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+
+
+% Keywords command
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Keywords---}} #1
+}
+
+
+\makeatletter
+\renewcommand{\paragraph}[1]{\noindent\textsf{#1}.}
+\newcommand{\etal}{et~al.\xspace}
+\newcommand{\newtext}[1]{\textcolor{blue}{#1}}
+\newcommand{\Aurel}[1]{\textcolor{brown}{{\it [Aurel: #1]}}}
+\newcommand{\add}[1]{\textcolor{red}{{\it $<$#1$>$}}}
+\newcommand*{\RQOne}{ What Ethereum smart contract code refactoring catalog is known to date? }
+\newcommand*{\RQTwo}{ Does code refactoring change the gas price? }
+\newcommand*{\RQThree}{ What kinds of refactoring impact the gas price? }
+
+
+
+\title{Impact of Smart Contract Code Refactoring on Ethereum Gas Price
+}
+\author{Aurel Ikama$^{1}$
+    \\
+    \emph{$^{1}$ Dep. of Computer and Software Engineering, Polytechnique Montréal, Montréal}}
+
+\begin{document}
+\maketitle
+
+\input{abstract}
+
+
+
+
+\section{Introduction}
+\input{section/introduction}
+\section{Study Design}
+\input{section/studymethod}
+\section{Case Study Results}
+\input{section/result}
+
+
+
+\section{Discussion}
+\input{section/discussion}
+
+\section{Threats to validity}
+\input{section/Threats}
+
+\section{Related Work}
+\input{section/RelatedWork}
+
+\section{Conclusion}
+\input{section/conclusion}
+
+\balance
+
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography/citations}
+\end{document}
+
