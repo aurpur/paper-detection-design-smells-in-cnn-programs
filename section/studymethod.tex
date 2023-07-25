@@ -1,31 +1,67 @@
-\begin{figure*}[th]
-\begin{center}
-   \includegraphics[scale=0.45]{figure/Impact of Code Refactoring on Gas Price.png}
-   \caption{\label{fig:1}Overview of the study method}
-\label{test_extraction}
-\end{center}
-\end{figure*}
-
-\label{sec:Analysis Methodology}
+\label{sec:study design}
+In this sub-section, we describe the details of the data collection and processing approach followed to answer our different research questions.
 
 
- \emph{\\RQ1:\RQOne}
- 
- 
-
- \emph{\\RQ2:\RQTwo}
- 
 
 
- \emph{\\RQ3:\RQThree}
- 
 
- 
+\subsection{Data Collection}
+\label{sec:data collection}
+Le développement du système de détection d'odeurs de conception s'est fait à
+partir des exemples de code de programmes d'apprentissage profond. Ces exemples
+représentent des programmes d'apprentissage profond dans lesquels on y trouve
+des odeurs de conceptions. Ses exemples ont été collectés par Amin et al. dans
+le cadre de leur études empiriques sur les odeurs de conception dans les
+programmes d'apprentissage profond. En effet, dans le cadre de cette étude, ils
+ont présenté six exemples de programmes d'apprentissage profond présentant les
+ordeurs de conceptions énuméré dans l'introduction \ref{sec:introduction}. Ces
+exemples de code source ont été collectés à partir des plateformes StackOverflow
+et Github.\\\\
 
-\subsection{Data collection}
-\label{sec:Data collection}
+Le système de détection d'odeurs de conception ainsi développé a servi sur un
+ensemble de programmes d'apprentissage profond collectés à partir de la
+plateforme Github. Ces programmes d'apprentissage profond ont été collectés
+selon un processus autimatiques. En effet, nous avons utilisé l'API de Github et
+précisement les requêtes de recherche de type \emph{search code}. Cette requête
+permet de rechercher des fichiers dans les dépôts Github contenant des mots clés
+spécifiques définis dans notre système. Étant donné que notre papier se
+concentre uniquement sur les libraires \emph{Keras}, \emph{Tensorflow} et \emph{Pytorch}, nous avons utilisé les mots
+clés présentés dans le tableau \ref*{tab:keywords}. Ces mots clés
+représentent les modules et les fonctions de ces deux librairies.\\
 
-Smart Bugs : https://github.com/smartbugs/smartbugs-wild/tree/master/contracts
+
+\begin{table}[h]
+  \centering
+  \caption{\emph{Liste des mots clés utilisés pour la recherche de programmes d'apprentissage profond dans les dépôts Github.}}
+  \label{tab:keywords}
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Mots clés}         & \textbf{Librairie} \\ \hline
+    keras.layers               & Keras              \\ \hline
+    keras.layers.convolutional & Keras              \\ \hline
+    AveragePooling2D           & Keras/Tensorflow   \\ \hline
+    MaxPooling2D               & Keras/Tensorflow   \\ \hline
+    tensorflow.keras.layers    & Tensorflow         \\ \hline
+    Conv2D                     & Keras/Tensorflow   \\ \hline
+    Convolution2D              & Keras/Tensorflow   \\ \hline
+    BatchNormalization         & Keras/Tensorflow   \\ \hline
+    import torch               & Pytorch            \\ \hline
+    import torchvision.models  & Pytorch            \\ \hline
+    torch.nn.Sequential        & Pytorch            \\ \hline
+    torch.nn.Conv2d            & Pytorch            \\ \hline
+    torch.nn.BatchNorm2d       & Pytorch            \\ \hline
+    torch.nn.MaxPool2d         & Pytorch            \\ \hline
+  \end{tabular}
+\end{table}
+
+
+La requête de recherche de type \emph{search code} retourne un ensemble d'informations sur le repository et le fichier contenant les mots clés recherchés.
+Nous procédons ensuite à un filtrage des répertoires selon les critères
+suivants: (1) nombre de commit, (2) notre de star, (3) nombre de fork, (4) dernière date du
+commit, (5) nombre de contributeurs. Ce filtrage nous permet de ne garder que
+les répertoires qui sont les plus populaires et qui sont les plus actifs. Nous
+avons ensuite procédé à un filtrage manuel des répertoires en éliminant les
+projets qui ne sont pas des programmes d'apprentissage profond.
 
 
 
@@ -42,20 +78,20 @@ In this sub-section, we describe the details of the data collection and analysis
 
 \begin{enumerate}
   % \item \emph{Creation d'un code de simulation de déploiment avec tebderly:}(https://docs.tenderly.co/simulations-and-forks/simulation-api) ou ganache (https://www.youtube.com/watch?v=fH4KUgQCS7c&ab_channel=BenBK)
-  
-  \item \emph{Collecter et trier les Smart contract:}
-  
-  \item \emph{Mesurer le prix du gaz de chaque Smart contrat:}
-  https://github.com/paperSubmition2020/GasmetReplicationPackage
 
-  
+  \item \emph{Collecter et trier les Smart contract:}
+
+  \item \emph{Mesurer le prix du gaz de chaque Smart contrat:}
+        https://github.com/paperSubmition2020/GasmetReplicationPackage
+
+
   \item \emph{Inserer des modifications (aléatoirement - manuellement):}
-  
+
   \item \emph{Documenter les modifications:}
 
 
-  \item \emph{Mesurer le prix du gaz des smart contrats modifés:} 
-  
+  \item \emph{Mesurer le prix du gaz des smart contrats modifés:}
+
 \end{enumerate}
 
 
