@@ -11,9 +11,9 @@ Le développement du système de détection d'odeurs de conception s'est fait à
 partir des exemples de code de programmes d'apprentissage profond. Ces exemples
 représentent des programmes d'apprentissage profond dans lesquels on y trouve
 des odeurs de conceptions. Ses exemples ont été collectés par Amin et al. dans
-le cadre de leur études empiriques sur les odeurs de conception dans les
-programmes d'apprentissage profond. En effet, dans le cadre de cette étude, ils
-ont présenté six exemples de programmes d'apprentissage profond présentant les
+le cadre de leur étude empirique sur les odeurs de conception dans les
+programmes d'apprentissage profond. En effet, dans cette étude, ils
+ont présenté sept exemples de programmes d'apprentissage profond contenant les
 ordeurs de conceptions énuméré dans l'introduction \ref{sec:introduction}. Ces
 exemples de code source ont été collectés à partir des plateformes StackOverflow
 et Github.\\\\
@@ -21,13 +21,13 @@ et Github.\\\\
 Le système de détection d'odeurs de conception ainsi développé a servi sur un
 ensemble de programmes d'apprentissage profond collectés à partir de la
 plateforme Github. Ces programmes d'apprentissage profond ont été collectés
-selon un processus autimatiques. En effet, nous avons utilisé l'API de Github et
-précisement les requêtes de recherche de type \emph{search code}. Cette requête
+selon un processus bien défini. En effet, nous avons utilisé l'API de Github et
+plus précisement les requêtes de recherche de type \emph{search code}. Cette requête
 permet de rechercher des fichiers dans les dépôts Github contenant des mots clés
 spécifiques définis dans notre système. Étant donné que notre papier se
 concentre uniquement sur les libraires \emph{Keras}, \emph{Tensorflow} et \emph{Pytorch}, nous avons utilisé les mots
 clés présentés dans le tableau \ref*{tab:keywords}. Ces mots clés
-représentent les modules et les fonctions de ces deux librairies.\\
+représentent les modules et les fonctions de ces trois librairies.\\
 
 
 \begin{table}[h]
@@ -55,13 +55,16 @@ représentent les modules et les fonctions de ces deux librairies.\\
 \end{table}
 
 
-La requête de recherche de type \emph{search code} retourne un ensemble d'informations sur le repository et le fichier contenant les mots clés recherchés.
-Nous procédons ensuite à un filtrage des répertoires selon les critères
-suivants: (1) nombre de commit, (2) notre de star, (3) nombre de fork, (4) dernière date du
+La requête de recherche de type \emph{search code} retourne un ensemble
+d'informations sur le repository et le fichier contenant les mots clés
+recherchés. Nous procédons ensuite à un filtrage des répertoires selon les
+critères suivants: (1) nombre de commit, (2) notre d'étoile, (3) nombre de fork, (4) dernière date du
 commit, (5) nombre de contributeurs. Ce filtrage nous permet de ne garder que
 les répertoires qui sont les plus populaires et qui sont les plus actifs. Nous
 avons ensuite procédé à un filtrage manuel des répertoires en éliminant les
-projets qui ne sont pas des programmes d'apprentissage profond.
+projets qui ne sont pas des programmes d'apprentissage profond. De ce fait nous
+nous sommes retrouvé avec 500 projets sur lesquels nous allons appliquer notre
+système de détection d'odeurs de conception.\\ Le schema \ref{fig:data_collect} présente le processus de collecte des programmes d'apprentissage profond.\\
 
 
 
@@ -72,30 +75,128 @@ projets qui ne sont pas des programmes d'apprentissage profond.
 
 \subsection{Data Processing}
 \label{sec:Data Processing}
-In this sub-section, we describe the details of the data collection and analysis approach followed to answer our different research questions. This approach is depicted in Figure \ref{fig:1}. In the following, we elaborate on each data processing step.
+Le processus de collecte des programmes d'apprentissage profond nous a permis
+d'avoir un ensemble de programmes d'apprentissage profond sur lesquels nous
+allons appliquer notre système de détection d'odeurs de conception. Cependant,
+il est important de noter que les programmes d'apprentissage profond sont dans
+notre cas des programmes uniquement écrits en langage Python. Il est donc
+essentiel de noter que, le système de détection d'odeurs de conception développé
+dans ce papier est un système qui est capable de détecter les odeurs de
+conception dans les programmes d'apprentissage profond écrits en langage
+Python.\\
+
+Afin de répondre à la question de recherche \emph{RQ1}, nous avons développé un système de détection d'odeurs de
+conception dans les programmes d'apprentissage profond. Ce système se décompose
+en trois parties. La première partie est la partie relative à la
+méta-modélisation des programmes d'apprentissage profond. La
+deuxième partie est la partie relative à la détection des odeurs de conception
+dans les programmes d'apprentissage profond. La troisième partie est la partie
+relative à l'analyse des résultats de la détection des odeurs de conception dans
+les programmes d'apprentissage profond.
+
+\subsubsection{Meta-modélisation des programmes d'apprentissage profond}
+\label{sec:Meta-modélisation des programmes d'apprentissage profond}
+La méta-modélisation des programmes d'apprentissage profond est la première
+étape du processus de détection des odeurs de conception dans les programmes
+d'apprentissage profond. Cette étape consiste à transformer le code source des programmes
+d'apprentissage profond collecté en un modèle intermédiaire qui sera utilisé pour la
+détection des odeurs de conception. Ce modèle intermédiaire est un modèle de
+type \emph{Famix Abstract Syntax Tree} (FAST). Le modèle FAST est un modèle qui
+est utilisé pour représenter les programmes sous forme d'arbre syntaxique. Il
+hérite de la représentation abstraite de codes sources \emph{Famix} dévéloppé
+dans le langage de programmation \emph{Pharo}. Avec \emph{Famix}, le code
+source est représenté sous forme d'objet et selon un méta-modèle défini pour symplifier l'analyse et
+la représentation de programmes complexes. Un modèle \emph{Famix} est une
+représentation agnostique en terme de langage du code source d'origine et embarque des
+fonctions qui permettent entre autres sa navigation et sa transformation.\\
+
+La transformation du code source collecté en modèle FAST se fait comme suit.
+Chaque projet collecté est cloné dans un répertoire local. Son code source est
+ensuite parseé à l'aide de la librairie \emph{ast.py} de Python. Cette librairie
+permet de transformer le code source en un arbre syntaxique sous forme Json. Le
+Json obtenu est ensuite transformé en un modèle FAST à l'aide d'un importateur
+développé sous le patron de conception visiteur. Les visiteurs sont des objets
+qui permettent de parcourir un arbre syntaxique et d'effectuer des actions sur
+les noeuds de l'arbre. Dans notre cas, nous avons développé un visiteur qui nous
+permet de parcourir l'arbre syntaxique (Json) et de transformer chaque noeud de
+cet arbre en un objet FAST.\\
+
+Le schema \ref{fig:meta_model} présente le processus de méta-modélisation des
+programmes d'apprentissage profond.\\
+
+\subsubsection{Détection des odeurs de conception}
+\label{sec:Détection des odeurs de conception}
+Le modèle FAST obtenu à partir de la méta-modélisation des programmes
+d'apprentissage profond est ensuite utilisé pour la détection des odeurs de
+conception. Cette étape consiste à parcourir le modèle FAST et à appliquer les
+règles de détection des odeurs de conception. Les règles de détection des odeurs
+de conception sont des règles qui permettent de détecter les odeurs de
+conception dans les programmes d'apprentissage profond. Ces règles sont définies
+dans le langage de programmation \emph{Pharo}.\\ Une règle ou plusieurs règles
+peuvent être appliquées sur un noeud de l'arbre syntaxique afin de détecter une
+odeur de conception. Le schema \ref{fig:rules} est un exemple de règle
+permettant de détecter l'odeur de conception numéro 5 - \emph{Non-dominating down-sampling}.\\
+Le schema \ref{fig:detection} présente le processus de détection des odeurs de conception dans les programmes d'apprentissage profond.\\
+
+
+\subsubsection{Analyse des résultats de la détection des odeurs de conception}
+\label{sec:Analyse des résultats de la détection des odeurs de conception}
+Les résultats de la détection des odeurs de conception de chaque repository sont
+stockés sous forme \emph{csv}. Pour chaque repository nous enregistrons le nom de
+chaque odeur de conception détectée, le nombre de fois que cette odeur est
+détectée dans un fichier du repository et le chemin de ce fichier. Ces résultats
+permettent de répondre aux questions de recherche \emph{RQ2} et \emph{RQ3}.\\
+On calcul ensuite la répartition des odeurs de conception dans chaque repository
+en divisant le nombre de fois qu'une odeur de conception est détectée par le
+nombre total d'odeurs de conception détectées dans le repository. Cette
+répartition permet de répondre à la question de recherche \emph{RQ2}.\\ On
+calcul également la répartition des odeurs de conception dans l'ensemble des 500
+repositories en divisant le nombre de fois qu'une odeur de conception est
+détectée par le nombre total d'odeurs de conception détectées dans l'ensemble
+des 500 repositories. Cette répartition permet aussi de répondre à la
+question de recherche \emph{RQ2}.\\
+On calcul ensuite la matrice de corrélation entre les odeurs de conception dans
+l'ensemble des 500 repositories. Cette matrice permet de répondre à la question
+de recherche \emph{RQ3}. Une matrice de corrélation est une matrice qui permet
+de calculer la corrélation entre deux variables.
+
+Un coeficient de corrélation est calculé à l'aide de la formule suivante:  $r =
+  \frac{cov(X,Y)}{\sigma_X \sigma_Y}$  où $r$ est le coeficient de corrélation, $cov(X,Y)$ est la covariance entre les
+deux variables $X$ et $Y$, $\sigma_X$ est l'écart type de la variable $X$ et
+$\sigma_Y$ est l'écart type de la variable $Y$. Ce coeficient de corrélation est
+compris entre -1 et 1. On parle de correlation positive lorsque le coeficient de
+corrélation est compris entre 0 et 1. Dans ce cas plus il est proche de 1, plus les deux variables sont
+corrélées positivement, et plus il est proche de 0, moins les deux variables sont
+corrélées. On parle de correlation négatif lorsque le coeficient de corrélation
+est compris entre -1 et 0. Dans ce cas, plus le coeficient de corrélation est
+proche de -1, plus les deux variables sont corrélées négativement, et plus il
+est proche de 0, moins les deux variables sont corrélées.\\
 
 
 
-\begin{enumerate}
-  % \item \emph{Creation d'un code de simulation de déploiment avec tebderly:}(https://docs.tenderly.co/simulations-and-forks/simulation-api) ou ganache (https://www.youtube.com/watch?v=fH4KUgQCS7c&ab_channel=BenBK)
+Dans notre cas, les variables sont les odeurs de conception. La corrélation entre deux odeurs de conception est
+calculée en divisant le nombre de fois que les deux odeurs de conception sont
+détectées ensemble par le nombre total de fois que les deux odeurs de conception
+sont détectées. Cette corrélation est calculée pour chaque paire d'odeurs de
+conception. Plus elle est proche de 1, plus les deux odeurs de conception sont
+corrélées, et plus elle est proche de 0, moins les deux odeurs de conception
+sont corrélées.\\
 
-  \item \emph{Collecter et trier les Smart contract:}
+Une corrélation positive signifie que les deux odeurs de conception
+sont souvent détectées ensemble. Et une corrélation négative signifie que les deux odeurs de conception sont rarement
+détectées ensemble. Enfin une corrélation nulle signifie que les deux odeurs de
+conception ne sont jamais détectées ensemble.\\
 
-  \item \emph{Mesurer le prix du gaz de chaque Smart contrat:}
-        https://github.com/paperSubmition2020/GasmetReplicationPackage
-
-
-  \item \emph{Inserer des modifications (aléatoirement - manuellement):}
-
-  \item \emph{Documenter les modifications:}
-
-
-  \item \emph{Mesurer le prix du gaz des smart contrats modifés:}
-
-\end{enumerate}
-
-
-
+Le schema \ref{fig:analysis} présente le processus d'analyse des résultats de la
+détection des odeurs de conception dans les programmes d'apprentissage
+profond.\\
 
 \subsection{Replication Package}
 \label{sec:Replication Package}
+Le code source du parse code source en arbre de Syntax \emph{Json} est sur
+Github à l'adresse \url{https://github.com/aurpur/parserPythonToJson} et du
+système de détection d'odeurs de conception dans les programmes d'apprentissage
+profond est disponible sur Github à l'adresse
+\url{https://github.com/aurpur/famixPythonImporter}. Le code source du système
+de collection de données est disponible sur Github à l'adresse
+\url{https://github.com/aurpur/ms-github-data-collection}.\\

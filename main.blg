@@ -8,6 +8,9 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bibliography/citations.bib
+Warning--I didn't find a database entry for "marinescu2004detection"
+Warning--I didn't find a database entry for "chidamber1994metrics"
+Warning--I didn't find a database entry for "palomba2017automatic"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -15,7 +18,7 @@ Database file #1: bibliography/citations.bib
 Done.
 You've used 1 entry,
             4087 wiz_defined-function locations,
-            827 strings with 7414 characters,
+            830 strings with 7476 characters,
 and the built_in function-call counts, 988 in all, are:
 = -- 68
 > -- 13
@@ -54,3 +57,4 @@ warning$ -- 0
 while$ -- 4
 width$ -- 2
 write$ -- 31
+(There were 3 warnings)
