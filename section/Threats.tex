@@ -1,29 +1,37 @@
 \label{threats}
+Notre étude est sujet de plusieurs menaces à la validité. Dans cette section
+nous présonterons ces menaces et les stratégies que nous avons utilisé pour les
+mitiger.\\
 
-Our study is subject to several threats to validity. First, our study is subject
-to the threat of construct validity. The threat of construct validity is the
-threat that the operationalization of the study variables might not be correct.
-To mitigate this threat, we used the meta-model to represent the CNN programs.
-Second, our study is subject to the threat of internal validity. The threat of
-internal validity is the threat that the observed effects might not be caused by
-the study variables. To mitigate this threat, we used the detection technique to
-detect the design smells in the CNN programs. Third, our study is subject to the
-threat of external validity. The threat of external validity is the threat that
-the results of the study might not be generalizable. To mitigate this threat, we
-used the CNN programs from 3 different domains. Fourth, our study is subject to
-the threat of reliability. The threat of reliability is the threat that the same
-results might not be obtained if the study is repeated. To mitigate this threat,
-we used the CNN programs from 3 different domains. Fifth, our study is subject
-to the threat of reliability. The threat of reliability is the threat that the
-same results might not be obtained if the study is repeated. To mitigate this
-threat, we used the CNN programs from 3 different domains. Sixth, our study is
-subject to the threat of reliability. The threat of reliability is the threat
-that the same results might not be obtained if the study is repeated. To
-mitigate this threat, we used the CNN programs from 3 different domains.
-Seventh, our study is subject to the threat of reliability. The threat of
-reliability is the threat that the same results might not be obtained if the
-study is repeated. To mitigate this threat, we used the CNN programs from 3
-different domains. Eighth, our study is subject to the threat of reliability.
+Premièrement, notre étude est sujet de la menace de validité de construction. En
+effet le modèle FAST généré par notre approche pourrait ne pas être correct et
+le moèle pourrai ne ma être conforme au méta-modèle défini ou encore mal
+représenter le programme d'apprentissage profond en entrée. Pour mitiger cette
+menace, nous avons mise en place des tests unitaires pour chaque méthode
+visiteur. Ces tests unitaires nous permettent de vérifier que les méthodes
+implémentées dans l'importateur son correctement implémentées et que le modèle
+FAST généré est conforme au méta-modèle défini. De plus, nous avons implémenté
+pour un ensemble de données de tests (des exemples synthétiques) des tests
+fonctionnels pour vérifier que le modèle FAST généré représente bien le
+programme d'apprentissage profond en entrée.\\
+
+Deuxièmement, notre étude est sujet de la menace de validité interne. Il
+subsiste un risque que les conclusions obtenues ne soient pas causées par les
+programmes en entrée. Pour mitiger cette menace, nous avons en plus de tester
+notre système sur des exemples synthétiques, nous avons utilisé des projets
+réels collectés dans Github pour valider le fonctionnement de notre système.\\
+
+Troisièmement, notre étude est sujet de la menace de validité externe. Il y a un
+risque que les résultats obtenus ne soient pas généralisables. Pour mitiger
+cette menace, nous avons collecté aléatoirement des projets dans Github afin de
+représenter différente application de l'architecture CNN.\\
+
+Quatrièmement, notre étude est sujet de la menace de validité de fiabilité. Il y
+a enfin un risque que les résultats obtenus ne soient pas reproductibles. Pour
+mitiger cette menace, nous avons en plus d'utilisé des projets de différentes
+applications de l'architecture CNN, utilisé des projets implémentées dans les
+trois librairies les plus utilisées dans l'industrie (Tensorflow, Pytorch et Keras).
+
 
 
 

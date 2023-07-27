@@ -57,14 +57,22 @@ représentent les modules et les fonctions de ces trois librairies.\\
 
 La requête de recherche de type \emph{search code} retourne un ensemble
 d'informations sur le repository et le fichier contenant les mots clés
-recherchés. Nous procédons ensuite à un filtrage des répertoires selon les
+recherchés. Cette collecte retourne un ensemble de données brute de 9572
+repositories Github diférents. Nous sélectionnons ensuite aléatoirement un sous
+ensemble de 10\% de notre ensemble de données brutes, soit 958 repositories
+Github afin d'optimiser l'étape de filtrage manuel ci-après.
+
+À partir de ce sous ensemble, nous procédons ensuite à un filtrage des répertoires selon les
 critères suivants: (1) nombre de commit, (2) notre d'étoile, (3) nombre de fork, (4) dernière date du
 commit, (5) nombre de contributeurs. Ce filtrage nous permet de ne garder que
 les répertoires qui sont les plus populaires et qui sont les plus actifs. Nous
 avons ensuite procédé à un filtrage manuel des répertoires en éliminant les
-projets qui ne sont pas des programmes d'apprentissage profond. De ce fait nous
-nous sommes retrouvé avec 500 projets sur lesquels nous allons appliquer notre
-système de détection d'odeurs de conception.\\ Le schema \ref{fig:data_collect} présente le processus de collecte des programmes d'apprentissage profond.\\
+projets qui ne sont pas des programmes d'apprentissage profond ou ne pas
+pertinente pour notre étude (n'utilise pas les librairies choisies, ou
+n'implémente pas de réseau de neurones). De ce fait nous nous sommes retrouvé
+avec 500 projets sur lesquels nous allons appliquer notre système de détection
+d'odeurs de conception.\\ Le schema \ref{fig:data_collect} présente le processus
+de collecte des programmes d'apprentissage profond.\\
 
 
 
