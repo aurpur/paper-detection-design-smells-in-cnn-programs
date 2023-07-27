@@ -21,28 +21,100 @@ réseaux de neurones artificiels qui sont composés de plusieurs couches de
 neurones  et qui ne contiennent pas de cycles. Les réseaux de neurones
 feed-forward sont les plus utilisés dans l'apprentissage profond.\\
 
-% Convolutional Neural Network
+
+\subsection{Convolutional Neural Network}
 Nous parlerons dans ce papier de programmes d'apprentissage profond pour
-désigner les programmes contenant les réseaux de neurones. Tout comme n'importe quel programme, les programmes d'apprentissage profond peuvent contenir des défauts.
-Nous nous intéressons dans ce papier aux défauts de conception car se sont des
-défauts introduits tôt dans le cycle de développement du logiciel et ils peuvent
-avoir un impact négatif conséquent sur la performance et la qualité du logiciel. En effet les défauts de
-conception sont des défauts qui sont introduits par le développeur lors de la
-phase de  conception du logiciel.\\
+désigner les programmes contenant les réseaux de neurones convolutifs. Une
+architecture de réseaux de neurones est de type feed-forward car elle ne
+contient pas de cycles. elle est composée de trois principales étapes suivantes:\\
+
+\subsubsection*{Convolution}
+La convolution est l'action de faire passer les filtres sur une image pour
+extraire des patterns. Un filtre est un réseau de neurone classique qui scanne
+une image sous partie par sous partie afin de détecter un pattern. Le filtre
+scanne une fenetre (partie) de l'image puis calcule la sortie en un pixel. Ainsi
+le filtre navige sur toute l'image pour calculer la sortie de chaque pixel d'une nouvelle image.
+La nouvelle image est appelée feature map. La convolution augmente la profondeur de
+l'image en entrée car elle génère plusieurs feature maps tout en réduisant sa taille.
+On rappelle que chaque layer de la profondeur est une image (taille réduite)
+générée par un filtre.\\
+
+\subsubsection*{Pooling}
+Le pooling est une opération qui permet de réduire la taille de l'image en
+selectionant le pixel le plus grand dans une fenetre. Il permet de réduire la
+consommation en calculs et en mémoire. Il permet aussi de réduire le sur
+l'overtfitting sur les données d'entrainement car on pert l'information sur la
+position des patterns détectés. On va donc utiliser le pooling sur les feature
+maps générées par la convolution. Chaque convolution est suivie d'un pooling
+et on répète cette opération plusieurs fois. Plus on va en profondeur de la
+convolution, plus on détecte des patterns précis susceptible de faciliter la classification.\\
+
+\subsubsection*{Flatten}
+Le flatten est l'opération qui permet de transformer les feature maps générées à
+la suite des convolution et pooling en un seul vecteur. Ce vecteur est ensuite
+utilisé comme entrée d'un réseau de neurones classique (\emph{dense layer}). De ce
+neurone sortira l'output du réseau de neurones convolutifs.
+
+\subsection{Odeur de conception}
+Le code smell est un mauvais choix de conception et d'implementation qui peut
+avoir un impact négatif sur la qualité du logiciel \cite{fowler1997refactoring}.
+Tout comme n'importe quel programme, les programmes d'apprentissage profond
+peuvent contenir des odeurs de code. Nous nous intéressons dans ce papier aux
+odeurs de conception car ce sont des odeurs introduits tôt dans le cycle de
+développement du logiciel et elles peuvent avoir un impact négatif conséquent
+sur la performance et la qualité du logiciel. Ses odeurs sont introduites par le
+développeur lors de la phase de  conception du logiciel.\\ Nikanjam et al. ont
+proposé une liste de 8 odeurs de conception pour les programmes d'apprentissage
+feed-forward \cite{nikanjam2019deep}. Ils ont trouvé ses odeurs dans des revue
+de litterature et les plateformes open source Github et StackOverflow. Leur étude empirique a montré que les
+odeurs proposées sont perçu comme pertinent par les développeurs. Nous nous
+sommes de se fait basé sur cette liste d'odeurs pour proposer aux développeurs
+un systeme de détection automatique de ses odeurs.\\ Les 8 odeurs proposées sont
+classées en deux catégories comme suit:
+
+\subsubsection{Formation of the feature map, convolutions and poolings layers}
+
+% tableau des odeurs et leur description
+\begin{table}[h]
+    \centering
+    \caption{Odeurs de conception dans les couches de convolution et de pooling}
+    \label{tab:convolutionalSmellsConv}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Odeur}             & \textbf{Description}                   \\ \hline
+        \textbf{Large Feature Map} & La taille de la feature map est grande \\ \hline
+        \textbf{Small Feature Map} & La taille de la feature map est petite \\ \hline
+        \textbf{Large Filter}      & La taille du filtre est grande         \\ \hline
+        \textbf{Small Filter}      & La taille du filtre est petite         \\ \hline
+    \end{tabular}
+\end{table}
 
 
-% Défauts de conception
-- Définition des défauts de conception\\
-- Définit les défauts de conception dans les programmes d'apprentissage
-profond\\
-- Définition différence entre odeurs, bugs, erreurs et défauts\\
+\subsubsection{Using regularization}
+
+% tableau des odeurs et leur description
+\begin{table}[h]
+    \centering
+    \caption{Odeurs de conception liées à la régularisation}
+    \label{tab:convolutionalSmellsReg}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Odeur}               & \textbf{Description}                         \\ \hline
+        \textbf{Dropout}             & Utilisation de la couche dropout             \\ \hline
+        \textbf{Batch Normalization} & Utilisation de la couche batch normalization \\ \hline
+        \textbf{L1 Regularization}   & Utilisation de la régularisation L1          \\ \hline
+        \textbf{L2 Regularization}   & Utilisation de la régularisation L2          \\ \hline
+    \end{tabular}
+\end{table}
+
+
 
 
 % Méta modélisation
 Méta modélisation des programmes d'apprentissage profond\\
 
-% Background
-% Motivation de l'étude
+
+% Motivation de l'étude + objectifs
 
 % Questions de recherche
 
@@ -52,4 +124,4 @@ Méta modélisation des programmes d'apprentissage profond\\
 
 \emph{\\RQ3:\RQThree} % Les relations
 
-
+% Les différentes parties du papier sont organisées comme suit. 
