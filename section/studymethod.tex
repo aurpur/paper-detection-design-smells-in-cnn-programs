@@ -75,7 +75,12 @@ avec 500 projets sur lesquels nous allons appliquer notre système de détection
 d'odeurs de conception.\\ Le schema \ref{fig:data_collect} présente le processus
 de collecte des programmes d'apprentissage profond.\\
 
-
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/design_smell_data_collection.png}
+  \caption{\emph{Processus de collecte des projets d'apprentissage profond dans Github.}}
+  \label{fig:data_collect}
+\end{figure*}
 
 
 
@@ -108,34 +113,42 @@ La modélisation des programmes d'apprentissage profond est la première
 étape du processus de détection des odeurs de conception. Cette étape consiste à transformer le code source des programmes
 d'apprentissage profond collecté en un modèle intermédiaire qui sera utilisé pour la
 détection des odeurs de conception. Ce modèle intermédiaire est un modèle de
-type \emph{Famix Abstract Syntax Tree} (FAST). Le modèle FAST est un modèle qui
+type \emph{Famix Abstract Syntax Tree} (\emph{FAST}) \ref{fig:fast}. Le modèle \emph{FAST} est un modèle qui
 est utilisé pour représenter les programmes sous forme d'arbre syntaxique. Il
 hérite de la représentation abstraite de codes sources \emph{Famix} dévéloppé
 dans le langage de programmation \emph{Pharo}. Avec \emph{Famix}, le code
-source est représenté sous forme d'objet et selon un méta-modèle défini pour symplifier l'analyse et
+source est représenté sous forme d'objet et selon un métamodèle défini pour symplifier l'analyse et
 la représentation de programmes complexes. Un modèle \emph{Famix} est une
 représentation agnostique en terme de langage du code source d'origine et embarque des
 fonctions qui permettent entre autres sa navigation et sa transformation.\\
 
-La transformation du code source collecté en modèle FAST se fait comme suit.
+La transformation du code source collecté en modèle \emph{FAST} se fait comme suit.
 Chaque projet collecté est cloné dans un répertoire local. Son code source est
 ensuite parsé à l'aide de la librairie \emph{ast.py} de Python. Cette librairie
-permet de transformer le code source en un arbre syntaxique sous forme json. Le
-json obtenu est ensuite transformé en un modèle FAST à l'aide d'un importateur
+permet de transformer le code source en un arbre syntaxique sous forme \emph{json}. Le
+\emph{json} obtenu est ensuite transformé en un modèle \emph{FAST} à l'aide d'un importateur
 développé sous le patron de conception visiteur. Les visiteurs sont des fonctions
 qui permettent de parcourir un arbre syntaxique pour effectuer sur ses noeuds des opérations
 spécifiques. Dans notre cas, nous avons développé des visiteurs qui
-nous permettent de parcourir l'arbre syntaxique (json) et de transformer chaque
-noeud de cet arbre en une entité de FAST.\\
+nous permettent de parcourir l'arbre syntaxique (\emph{json}) et de transformer chaque
+noeud de cet arbre en une entité de \emph{FAST}.\\
 
-Le schema \ref{fig:meta_model} illustre le processus de modélisation des
+Le schema \ref{fig:modelling} illustre le processus de modélisation des
 programmes d'apprentissage profond.\\
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/design_smell_modeling.png}
+  \caption{\emph{Processus de modeling des projets d'apprentissage profond.}}
+  \label{fig:modelling}
+\end{figure*}
+
 
 \subsubsection{Détection des odeurs de conception}
 \label{sec:Detection des odeurs de conception}
-Le modèle FAST obtenu à partir de la méta-modélisation des programmes
+Le modèle \emph{FAST} obtenu à partir de la modélisation des programmes
 d'apprentissage profond est ensuite utilisé pour la détection des odeurs de
-conception. Cette étape consiste à parcourir le modèle FAST et à appliquer les
+conception. Cette étape consiste à parcourir le modèle \emph{FAST} et à appliquer les
 règles de détection des odeurs de conception. Ces règles sont définies
 dans le langage de programmation \emph{Pharo}.\\ Une règle ou plusieurs règles
 peuvent être appliquées sur un noeud de l'arbre syntaxique afin de détecter une
@@ -145,6 +158,13 @@ odeur de conception.\\
 % permettant de détecter l'odeur de conception numéro 5 - \emph{Non-dominating down-sampling}.\\
 Le schema \ref{fig:detection} illustre le processus de détection des odeurs de conception.\\
 
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/design_smell_detection.png}
+  \caption{\emph{Processus de détection des odeurs de conception.}}
+  \label{fig:detection}
+\end{figure*}
 
 \subsubsection{Analyse des résultats de la détection des odeurs de conception}
 \label{sec:Analyse des résultats de la détection des odeurs de conception}
@@ -196,6 +216,13 @@ détectées ensemble. Enfin une corrélation nulle signifie que les deux odeurs 
 conception ne sont jamais détectées ensemble.\\
 
 Le schema \ref{fig:analysis} illustre le processus de cette dernière partie.\\
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/design_smell_analyze.png}
+  \caption{\emph{Processus d'analyse des résultats de la détection des odeurs de conception.}}
+  \label{fig:analysis}
+\end{figure*}
 
 \subsection{Replication Package}
 \label{sec:Replication Package}
