@@ -73,7 +73,7 @@ In order to answer the research question \emph{RQ1}, we have developed a system 
 
 \subsubsection{Modeling deep learning programs}
 \label{sec:modelingDeepLearningPrograms}
-Modeling deep learning programs is the first step in the design smell detection process. This involves transforming the source code of the collected deep learning programs into an intermediate model that will be used for design smell detection. This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig:fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to simplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the original source code and includes functions for navigation and transformation.\\
+Modeling deep learning programs is the first step in the design smell detection process. This involves transforming the source code of the collected deep learning programs into an intermediate model that will be used for design smell detection. This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig:fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to symplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the original source code and includes functions for navigation and transformation.\\
 
 \begin{figure*}[h]
   \centering
@@ -86,7 +86,7 @@ Transformation of the collected source code into the \emph{FAST} model is as fol
 
 The diagram \ref{fig:modelling} illustrates the modeling process for deep learning programs.\\
 
-\begin{figure*}[h]
+\begin{figure*}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/design_smell_modeling.png}
   \caption{\emph{Modeling process for deep learning projects.}}
@@ -103,7 +103,7 @@ The \emph{FAST} model obtained from the modeling of deep learning programs is th
 The diagram \ref{fig:detection} illustrates the design smell detection process.\\
 
 
-\begin{figure*}[h]
+\begin{figure*}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/design_smell_detection.png}
   \caption{\emph{Design smell detection process.}}
@@ -119,6 +119,7 @@ We then calculate the correlation matrix between design smells in all 500
 repositories. This matrix answers the research question \emph{RQ3}. A
 correlation matrix is used to calculate the correlation between two variables.
 
+
 A correlation coefficient is calculated using the following formula:  $r =
   \frac{cov(X,Y)}{\sigma_X \sigma_Y}$  where $r$ is the correlation coefficient, $cov(X,Y)$ is the covariance between the two variables $X$ and $Y$, $\sigma_X$ is the standard deviation of the variable $X$ and $\sigma_Y$ is the standard deviation of the variable $Y$. This correlation coefficient ranges from -1 to 1. A positive correlation exists when the correlation coefficient ranges from 0 to 1. In this case, the closer it is to 1, the more positively correlated the two variables are, and the closer it is to 0, the less correlated the two variables are. A negative correlation is defined as a correlation coefficient between -1 and 0. In this case, the closer the correlation coefficient is to -1, the more negatively correlated the two variables are, and the closer it is to 0, the less correlated the two variables are.\\
 
@@ -130,7 +131,7 @@ A positive correlation means that the two design smells are often detected toget
 
 The diagram \ref{fig:analysis} illustrates the process of this last part.\\
 
-\begin{figure*}[h]
+\begin{figure*}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{figure/design_smell_analyze.png}
   \caption{\emph{Process for analyzing design smell detection results.}}
