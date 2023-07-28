@@ -122,6 +122,13 @@ la représentation de programmes complexes. Un modèle \emph{Famix} est une
 représentation agnostique en terme de langage du code source d'origine et embarque des
 fonctions qui permettent entre autres sa navigation et sa transformation.\\
 
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/fast.png}
+  \caption{\emph{Exemple d'un modèle \emph{FAST} d'un programme fictif d'apprentissage profond.}}
+  \label{fig:fast}
+\end{figure*}
+
 La transformation du code source collecté en modèle \emph{FAST} se fait comme suit.
 Chaque projet collecté est cloné dans un répertoire local. Son code source est
 ensuite parsé à l'aide de la librairie \emph{ast.py} de Python. Cette librairie
