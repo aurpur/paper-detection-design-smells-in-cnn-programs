@@ -70,53 +70,90 @@ de litterature et les plateformes open source Github et StackOverflow. Leur étu
 odeurs proposées sont perçu comme pertinent par les développeurs. Nous nous
 sommes de se fait basé sur cette liste d'odeurs pour proposer aux développeurs
 un systeme de détection automatique de ses odeurs.\\ Les 8 odeurs proposées sont
-classées en deux catégories comme suit:
+classées en deux catégories principales comme suit:
+\begin{enumerate}
+    \item \textbf{Odeurs de conception lors de la convolution et le pooling} : Ces
+          odeurs sont introduites lors de la formation des feature maps. Elles sont liées
+          à la taille de la feature map ou du filtre et à la disposition des couhes. La liste des odeurs est présentée dans le tableau \ref{tab:convolutionalSmellsConv}.
+    \item \textbf{Odeurs de conception liées à l'usage des méthodes de régulation} : Ces odeurs sont
+          introduites lors de l'utilisation de la régularisation. Elles sont liées à
+          l'utilisation des méthodes de régularisation comme la couche dropout et la
+          disposition de ses méthodes. La liste des odeurs est présentée dans le tableau \ref{tab:convolutionalSmellsReg}.
+\end{enumerate}
 
-\subsubsection{Formation of the feature map, convolutions and poolings layers}
 
-% tableau des odeurs et leur description
-\begin{table}[h]
+\begin{table*}[h]
     \centering
     \caption{Odeurs de conception dans les couches de convolution et de pooling}
     \label{tab:convolutionalSmellsConv}
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Odeur}             & \textbf{Description}                   \\ \hline
-        \textbf{Large Feature Map} & La taille de la feature map est grande \\ \hline
-        \textbf{Small Feature Map} & La taille de la feature map est petite \\ \hline
-        \textbf{Large Filter}      & La taille du filtre est grande         \\ \hline
-        \textbf{Small Filter}      & La taille du filtre est petite         \\ \hline
+    \begin{tabular}{ll}
+        \toprule
+        \multicolumn{1}{c}{\textbf{Design Smell}} &
+        \multicolumn{1}{c}{\textbf{Description}}                                                                                                                                                       \\ \midrule
+        Non-expanding feature map                 &
+        \begin{tabular}[c]{@{}l@{}}Conserver le même nombre de caractéristiques ou \\ le diminuer à mesure que l'architecture devient plus profonde.\end{tabular}                                      \\
+        Losing local correlation                  &
+        \begin{tabular}[c]{@{}l@{}}Commencer par une taille de fenêtre relativement grande pour\\ le filtrage spatial et la conservent pour toutes les couches convolutives.\end{tabular}              \\
+        Heterogeneous blocks of CNNs              &
+        \begin{tabular}[c]{@{}l@{}}Construire un modèle plus profond en empilant uniquement\\ un ensemble de couches de convolution et de mise en commun\\ sans configuration appropriée.\end{tabular} \\
+        Too much down-sampling                    &
+        \begin{tabular}[c]{@{}l@{}}Utilisation du pooling juste après chaque couche\\ convolutive, en particulier pour les premières couches.\end{tabular}                                             \\
+        Non-dominating down-sampling              &
+        Utilisation de l'average-pooling.                                                                                                                                                              \\ \bottomrule
     \end{tabular}
-\end{table}
+\end{table*}
 
 
-\subsubsection{Using regularization}
-
-% tableau des odeurs et leur description
-\begin{table}[h]
+\begin{table*}[h]
     \centering
     \caption{Odeurs de conception liées à la régularisation}
     \label{tab:convolutionalSmellsReg}
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Odeur}               & \textbf{Description}                         \\ \hline
-        \textbf{Dropout}             & Utilisation de la couche dropout             \\ \hline
-        \textbf{Batch Normalization} & Utilisation de la couche batch normalization \\ \hline
-        \textbf{L1 Regularization}   & Utilisation de la régularisation L1          \\ \hline
-        \textbf{L2 Regularization}   & Utilisation de la régularisation L2          \\ \hline
+    \begin{tabular}{ll}
+        \toprule
+        \multicolumn{1}{c}{\textbf{Design Smell}} & \multicolumn{1}{c}{\textbf{Description}}
+        \\ \midrule
+        Useless Dropout                           & Utilisation du Dropout avant les pooling layer.                                                                                                                                        \\
+        Bias with Batchnorm                       &
+        \begin{tabular}[c]{@{}l@{}}Conserver les valeurs de biais dans les couches lors \\ de l'utilisation de batchnorm. \\ Les couches d'apprentissage d'un FNN bénéficient \\ d'un biais avec différentes initialisations.\end{tabular} \\
+        Non-representative Statistics Estimation  & Utilisation du batchnorm après le dropout.                                                                                                                                             \\ \bottomrule
     \end{tabular}
-\end{table}
+\end{table*}
 
 
 
+\subsection{Meta-modeling}
 
-% Méta modélisation
-Méta modélisation des programmes d'apprentissage profond\\
+Thomas Kühne définit un  modèle comme un artefact formulé dans un langage de
+modélisation, tel qu'UML, décrivant un système à l'aide de différents types de
+diagrammes \cite{kuhne2006matters}. Cette représentation abstraite d'un système
+est définit par un autre modèle appelé méta-modèle. Un modèle permet d'analyser,
+comprendre et transformer un système efficacement.
+Ses opérations peuvent être automatisées \cite{gonzalez2014formal}. Il existe
+plusieurs types de modèles tels que les modèles de comportement (représent le
+comportement dynamique du système) ou de conception (représent la structure
+statique du systeme).\\ Dans ce papier, nous nous intéressons aux modèles de
+conception car
+les odeurs étudiées sont représentées sous forme statique et sont introduit au
+niveau de la stucture du système.\\
+
+Nous utiliserons par ailleurs les modèles \textbf{FAST} (\emph{Famix Abstract Syntax Tree}) pour représenter les systèmes étudiés dans ce papier. Les modèles
+FAST sont des arbres de syntaxe issue du langage de programmation orienté objet
+Pharo \cite{black2010pharo, bergel2013deep, zaitsev2020characterizing}. Il hérite du modèle \textbf{FAMIX} qui est d'après la définition de
+Tichelaar et al. une représentation indépendante du langage d'un code source
+orienté objet. Il s'agit d'un modèle entité-relation qui modélise le code source
+orienté objet au niveau de l'entité du programme \cite{891485} \cite{demeyer1999famix}.
+Les modèles FAST sont développés dans l'envirennement de retroengineering Moose \cite{ducasse2000moose}.\\\\
 
 
-% Motivation de l'étude + objectifs
 
-% Questions de recherche
+\subsection{Motivation and research questions}
+Les développeurs ont identifié dans l'étude de Nikanjam et al. les odeurs de
+conception proposées, leur pertinence et donc l'interet de les éviter.
+Cependant, il n'existe pas de système de détection automatique de ses odeurs
+dans la littérature. Nous proposons dans ce papier ce système qui
+permettra de détecter ses odeurs dans les programmes d'apprentissage profond
+CNN. De plus notre système couvrira les Frameworks open source les plus utilisés sur le
+marché. Pour ce faire, nous avons défini les questions de recherche suivantes:\\
 
 \emph{\\RQ1:\RQOne} % La technique de détection
 
@@ -124,4 +161,9 @@ Méta modélisation des programmes d'apprentissage profond\\
 
 \emph{\\RQ3:\RQThree} % Les relations
 
-% Les différentes parties du papier sont organisées comme suit. 
+Notre papier est organisé comme suit: la section \ref{sec:background} présente
+les travaux passé lié à notre sujet. La section \ref{sec:studyDesign} décrit la
+collection et le traitement des données. La section \ref{sec:results} présente
+les résultats. La section \ref{sec:discussion} discute les
+résultats précedement présentées. La section \ref{sec:threats} présente les menaces à la
+validité et la section \ref{sec:limitationsFutureWork} présente les limites de notre étude et les travaux futurs.
