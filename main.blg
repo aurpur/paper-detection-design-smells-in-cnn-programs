@@ -15,45 +15,45 @@ Warning--I didn't find a database entry for "nikanjam2019deep"
 Warning--empty year in cernymicroservice
 
 Done.
-You've used 23 entries,
+You've used 24 entries,
             4087 wiz_defined-function locations,
-            955 strings with 11813 characters,
-and the built_in function-call counts, 16364 in all, are:
-= -- 1285
-> -- 405
-< -- 117
-+ -- 213
-- -- 74
-* -- 780
-:= -- 2450
-add.period$ -- 49
-call.type$ -- 23
-change.case$ -- 21
-chr.to.int$ -- 261
-cite$ -- 24
-duplicate$ -- 1200
-empty$ -- 1404
-format.name$ -- 96
-if$ -- 3841
+            960 strings with 12010 characters,
+and the built_in function-call counts, 17250 in all, are:
+= -- 1354
+> -- 422
+< -- 126
++ -- 223
+- -- 76
+* -- 820
+:= -- 2570
+add.period$ -- 52
+call.type$ -- 24
+change.case$ -- 22
+chr.to.int$ -- 285
+cite$ -- 25
+duplicate$ -- 1261
+empty$ -- 1485
+format.name$ -- 99
+if$ -- 4055
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 217
-newline$ -- 92
-num.names$ -- 23
-pop$ -- 527
+int.to.str$ -- 24
+missing$ -- 226
+newline$ -- 95
+num.names$ -- 24
+pop$ -- 550
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1280
+skip$ -- 1349
 stack$ -- 0
-substring$ -- 641
-swap$ -- 924
-text.length$ -- 30
+substring$ -- 698
+swap$ -- 974
+text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 23
+type$ -- 24
 warning$ -- 1
-while$ -- 73
-width$ -- 25
-write$ -- 234
+while$ -- 78
+width$ -- 26
+write$ -- 243
 (There were 2 warnings)
