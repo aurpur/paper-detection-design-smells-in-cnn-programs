@@ -9,53 +9,51 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bibliography/citations.bib
 Warning--I didn't find a database entry for "nikanjam2019deep"
-Warning--I didn't find a database entry for "marinescu2004detection"
-Warning--I didn't find a database entry for "chidamber1994metrics"
-Warning--I didn't find a database entry for "palomba2017automatic"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty year in cernymicroservice
 
 Done.
-You've used 1 entry,
+You've used 23 entries,
             4087 wiz_defined-function locations,
-            830 strings with 7533 characters,
-and the built_in function-call counts, 563 in all, are:
-= -- 31
-> -- 9
-< -- 0
-+ -- 4
-- -- 2
-* -- 38
-:= -- 102
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 1
-chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 40
-empty$ -- 57
-format.name$ -- 3
-if$ -- 111
+            955 strings with 11813 characters,
+and the built_in function-call counts, 16364 in all, are:
+= -- 1285
+> -- 405
+< -- 117
++ -- 213
+- -- 74
+* -- 780
+:= -- 2450
+add.period$ -- 49
+call.type$ -- 23
+change.case$ -- 21
+chr.to.int$ -- 261
+cite$ -- 24
+duplicate$ -- 1200
+empty$ -- 1404
+format.name$ -- 96
+if$ -- 3841
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 8
-newline$ -- 26
-num.names$ -- 1
-pop$ -- 23
+int.to.str$ -- 23
+missing$ -- 217
+newline$ -- 92
+num.names$ -- 23
+pop$ -- 527
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 39
+skip$ -- 1280
 stack$ -- 0
-substring$ -- 1
-swap$ -- 20
-text.length$ -- 0
+substring$ -- 641
+swap$ -- 924
+text.length$ -- 30
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 1
-warning$ -- 0
-while$ -- 1
-width$ -- 2
-write$ -- 30
-(There were 4 warnings)
+type$ -- 23
+warning$ -- 1
+while$ -- 73
+width$ -- 25
+write$ -- 234
+(There were 2 warnings)

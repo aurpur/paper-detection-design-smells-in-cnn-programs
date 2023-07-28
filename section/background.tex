@@ -1,132 +1,53 @@
 \label{sec:background}
+Dans cette section nous présenterons les précédents travaux sur la détection des
+ordeurs de code dans les logiciels.\\
 
-In this section, we present the related work. We first present the related work
-on the detection of design smells in traditional software. Then, we present the
-related work on the detection of design smells in deep learning software.
-Finally, we present the related work on the meta-modeling of deep learning
-software.
-
-\subsection{Detection of design smells in traditional software}
-design smells are design flaws that are introduced by the developer during the
-design phase of the software development life cycle. They are considered as a
-threat to the quality of the software because they can lead to maintainability
-issues such as code smells, bugs, and performance issues. Several studies have
-been conducted to detect design smells in traditional software. In this section,
-we present the related work on the detection of design smells in traditional
-software.
-
-
-\subsubsection{Detection of design smells using static analysis}
-Static analysis is a technique that is used to analyze the source code of a
-software without executing it. It is used to detect design smells in software.
-
-\paragraph{Detection of design smells using metrics}
-Metrics are used to detect design smells in software. Several studies have been
-conducted to detect design smells using metrics. For example, Marinescu et al.
-\cite{marinescu2004detection} proposed a technique to detect design smells using
-metrics. They used the CK metrics suite \cite{chidamber1994metrics} to detect
-design smells in software. They used the CK metrics suite to compute the metrics
-of the software and then they used a threshold to detect the design smells.
-They used the following thresholds: WMC $\geq$ 47, DIT $\geq$ 6, NOC $\geq$ 7,
-CBO $\geq$ 6, RFC $\geq$ 47, LCOM $\geq$ 1, and NPM $\geq$ 21. They used the
-thresholds to detect the design smells in the software.
-
-\paragraph{Detection of design smells using machine learning}
-Machine learning is a technique that is used to detect design smells in
-software.
-Several studies have been conducted to detect design smells using machine
-learning. For example, Palomba et al. \cite{palomba2017automatic} proposed a
-technique to detect design smells using machine learning. They used the CK
-metrics suite \cite{chidamber1994metrics} to compute the metrics of the software
-and then they used machine learning to detect the design smells. They used the
-following metrics: WMC, DIT, NOC, CBO, RFC, LCOM, and NPM. They used the
-following machine learning algorithms: Decision Tree, Random Forest, Naive
-Bayes,
-Support Vector Machine, and Logistic Regression. They used the machine learning
-algorithms to detect the design smells in the software.
-
-\subsubsection{Detection of design smells using dynamic analysis}
-Dynamic analysis is a technique that is used to analyze the behavior of a
-software during its execution. It is used to detect design smells in software.
-
-\paragraph{Detection of design smells using metrics}
-Metrics are used to detect design smells in software. Several studies have been
-conducted to detect design smells using metrics. For example, Marinescu et al.
-\cite{marinescu2004detection} proposed a technique to detect design smells using
-metrics. They used the CK metrics suite \cite{chidamber1994metrics} to detect
-design smells in software. They used the CK metrics suite to compute the metrics
-of the software and then they used a threshold to detect the design smells. They
-used the following thresholds: WMC $\geq$ 47, DIT $\geq$ 6, NOC $\geq$ 7, CBO
-$\geq$ 6, RFC $\geq$ 47, LCOM $\geq$ 1, and NPM $\geq$ 21. They used the
-thresholds to detect the design smells in the software.
-
-\paragraph{Detection of design smells using machine learning}
-Machine learning is a technique that is used to detect design smells in
-software.
-
-Several studies have been conducted to detect design smells using machine
-learning. For example, Palomba et al. \cite{palomba2017automatic} proposed a
-technique to detect design smells using machine learning. They used the CK
-metrics suite \cite{chidamber1994metrics} to compute the metrics of the software
-and then they used machine learning to detect the design smells. They used the
-following metrics: WMC, DIT, NOC, CBO, RFC, LCOM, and NPM. They used the
-following machine learning algorithms: Decision Tree, Random Forest, Naive
-Bayes,
-Support Vector Machine, and Logistic Regression. They used the machine learning
-algorithms to detect the design smells in the software.
-
-\subsection{Detection of design smells in deep learning software}
-Deep learning software is a type of software that is used to train deep learning
-models. It is used to detect design smells in deep learning software.
-
-\paragraph{Detection of design smells using metrics}
-Metrics are used to detect design smells in software. Several studies have been
-conducted to detect design smells using metrics. For example, Marinescu et al.
-\cite{marinescu2004detection} proposed a technique to detect design smells using
-metrics. They used the CK
-metrics suite \cite{chidamber1994metrics} to detect design smells in software.
-They used the CK metrics suite to compute the metrics of the software and then
-they used a threshold to detect the design smells. They used the following
-thresholds: WMC $\geq$ 47, DIT $\geq$ 6, NOC $\geq$ 7, CBO $\geq$ 6, RFC $\geq$
-47, LCOM $\geq$ 1, and NPM $\geq$ 21. They used the thresholds to detect the
-design smells in the software.
-
-\paragraph{Detection of design smells using machine learning}
-Machine learning is a technique that is used to detect design smells in
-software.
-Several studies have been conducted to detect design smells using machine
-learning. For example, Palomba et al. \cite{palomba2017automatic} proposed a
-technique to detect design smells using machine learning. They used the CK
-metrics
-suite \cite{chidamber1994metrics} to compute the metrics of the software and
-then
-they used machine learning to detect the design smells. They used the following
-metrics: WMC, DIT, NOC, CBO, RFC, LCOM, and NPM. They used the following machine
-learning algorithms: Decision Tree, Random Forest, Naive Bayes, Support Vector
-Machine, and Logistic Regression. They used the machine learning algorithms to
-detect the design smells in the software.
-
-\subsection{Meta-modeling of deep learning software}
-Meta-modeling is a technique that is used to model the software. It is used to
-model the deep learning software. Several studies have been conducted to model
-the deep learning software. In this section, we present the related work on the
-meta-modeling of deep learning software.
-
-\paragraph{Meta-modeling of deep learning software using metrics}
-Metrics are used to model the deep learning software. Several studies have been
-conducted to model the deep learning software using metrics. For example,
-Marinescu et al. \cite{marinescu2004detection} proposed a technique to model the
-
-
-\paragraph{Meta-modeling of deep learning software using machine learning}
-Machine learning is a technique that is used to model the deep learning
-software.
-
-Several studies have been conducted to model the deep learning software using
-machine learning. For example, Palomba et al. \cite{palomba2017automatic}
-proposed a technique to model the deep learning software using machine learning.
-They used the CK metrics suite \cite{chidamber1994metrics} to compute the
-metrics
+L'idée de détecter des ordeurs dans les codes sources des logiciels est un
+sujet beaucoup étudié dans la littérature. En effet, plusieurs travaux proposent
+des techniques de détection depuis plus d'une décénie. Les odeurs de code sont
+étudiées selon plusieurs axes, comme par exemple leur présence dans des
+logiciels développés dans un langage de programmation spécifique
+\cite{saboury2017empirical}, la sécurité dans le code source d'Infrastructure as Code
+\cite{rahman2021security}, dans les microservices \cite{cernymicroservice}, ou
+leur impact sur la performance des applications Android
+\cite{hecht2016empirical}.
+Fard et al. \cite{6648192} propsent JSNOSE (precision: 93\% and average recall: 98\%) une technique de détection des
+ordeurs de code du langage JavaScript. Une combinaise d'analyses statique et
+dynamique pour détecter des odeurs de code coté client. Chen et al.
+\cite{chen2016detecting} proposent quant à eux Pysmell, un outil capable de
+détecter des odeurs de code du langage Python avec une précision moyen de
+97.7\%. La détection d'odeurs de code a un impact sur la qualité du logiciel,
+Van Emden et al. \cite{1173068} font de l'assurance qualité de code Java via la
+détection et la visualisation d'odeurs de code. Pour ne citer que ces exemples,
+Moha et al. \cite{moha2010decor} proposent une approche de spéccification et de
+détection d'odeurs de code nommée DECOR avec une precision de 60.5\%,
+et un recall de 100\%. On trouve également dans la litterature des approches de
+détection d'odeurs basées sur la modélisation, comme l'approche proposée par
+Araujo et al. \cite{araujo2018metamodeling} pour identifier les odeurs
+organisationnelles dans les système multi-agents via la métamodélisation, ou
+celle de Khomh et al. \cite{khomh2009bayesian} qui convertissent les règles de
+détection dans la litterature en un modèle probabilistique dans le but de
+détecter les odeurs de code. Ce dernier ouvre la voie à la détection d'odeurs
+de code avec
+l'aide de l'intelligence artificielle. On trouve de ce fait, dans les dernières
+années plusieurs travaux proposant des approches de détection d'odeurs de code
+basées sur l'intelligence artificielle \cite{alawadi2023fedcsd,
+    sandouka2023python, alazba2023deep}. À la lumière de ces travaux, nous nous
+sommes posés les questions suivantes: \textbf{Est-il possible de détecter
+    efficacement et de
+    manière statique les
+    odeurs de code dans les logiciels d'apprentissage profond?} \\ Dans la litterature Nikanjam et al. ont
+initer la réponse à ces questions en proposant NeuraLint (precision: 100\% and
+recall: 70,5\%) \cite{nikanjam2021automatic}, une approche basées sur modèle
+de détection d'odeurs de code. Cette approche utilise la métamodelisation pour atteindre son
+but. Cependant la porté de NeuraLint ne s'est limité qu'aux architectures
+feedforward multilayer perceptron (MLP). L'apprentissage profond est un domaine
+en pleine expansion, et les architectures de réseaux de neurones sont de plus en
+plus complexes. Il est donc nécessaire de pouvoir détecter des odeurs de code
+d'autres architectures de réseaux de neurones. L'architecture CNN étant une des
+plus utilisée dans la pratique, nous nous sommes fixés dans ce papier, l'objectif de
+permettre la détection d'odeurs de code dans les réseaux de neurones de type
+CNN.
 
 
 
