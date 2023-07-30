@@ -1,6 +1,6 @@
 \label{sec:introduction}
 
-Deep learning is a subset of machine learning that uses artificial neural networks to learn from unstructured data. Deep learning has become very popular in recent years due to its performance in a number of fields, such as image recognition, speech recognition, machine translation and more. Artificial neural networks are mathematical models inspired by the workings of the human brain. They are composed of several layers of interconnected neurons. Each neuron has an activation function that calculates the neuron's output according to its inputs. There are several types of artificial neural network architecture. These architectures have been developed to address specific problems, such as convolution architecture for image recognition, recurrent neural networks for speech recognition, and so on. In this paper, we focus on convolution architecture, as it can handle a wide range of problems, such as image recognition, text recognition and sequence recognition. Moreover, convolution architecture is part of feed-forward architectures, a class of artificial neural networks composed of several layers of neurons and containing no cycles. Feed-forward neural networks are the most widely used in deep learning.\\
+Deep learning is a subset of machine learning that uses artificial neural networks to learn from unstructured data. Deep learning has become very popular in recent years due to its performance in several fields, such as image recognition, speech recognition, machine translation, and more. Artificial neural networks are mathematical models inspired by the workings of the human brain. They are composed of several layers of interconnected neurons. Each neuron has an activation function that calculates the neuron's output according to its inputs. There are several types of artificial neural network architecture. These architectures have been developed to address specific problems, such as convolution architecture for image recognition, recurrent neural networks for speech recognition, and so on. In this paper, we focus on convolution architecture, as it can handle a wide range of problems, such as image recognition, text recognition, and sequence recognition. Moreover, convolution architecture is part of feed-forward architectures, a class of artificial neural networks composed of several layers of neurons and containing no cycles. Feed-forward neural networks are the most widely used in deep learning.\\
 
 
 \subsection{Convolutional Neural Network}
@@ -61,7 +61,7 @@ A code smell is a poor design and implementation choice that can have a negative
         \toprule
         \multicolumn{1}{c}{\textbf{Design Smell}} & \multicolumn{1}{c}{\textbf{Description}}
         \\ \midrule
-        Useless Dropout                           & Using Dropout before pooling layers.                                                                                \\
+        Useless Dropout                           & Using Dropout before Pooling Layers.                                                                                \\
         Bias with Batchnorm                       &
         \begin{tabular}[c]{@{}l@{}}Keep the bias values in the layers when using Batchnorm. FNN learning layers are biased with different initializations.\end{tabular} \\
         Non-representative Statistics Estimation  & Use of Batchnorm after Dropout.                                                                                     \\ \bottomrule
@@ -72,7 +72,7 @@ A code smell is a poor design and implementation choice that can have a negative
 
 \subsection{Modeling}
 
-Thomas Kühne defines a model as an artifact formulated in a modeling language, such as UML, that describes a system using different types of diagrams \cite{kuhne2006matters}. This abstract representation of a system is defined by another model called a metamodel. A model allows a system to be analyzed, understood and transformed efficiently. Its operations can be automated \cite{gonzalez2014formal}. There are several types of models, such as behavioral models (representing the dynamic behavior of the system) or design models (representing the static structure of the system).\\In this paper, we are interested in design models because the smells studied are represented in static form and are introduced at the system structure level.\\
+Thomas Kühne defines a model as an artifact formulated in a modeling language, such as UML, that describes a system using different types of diagrams \cite{kuhne2006matters}. This abstract representation of a system is defined by another model called a metamodel. A model allows a system to be analyzed, understood, and transformed efficiently. Its operations can be automated \cite{gonzalez2014formal}. There are several types of models, such as behavioral models (representing the dynamic behavior of the system) or design models (representing the static structure of the system).\\In this paper, we are interested in design models because the smells studied are represented in static form and are introduced at the system structure level.\\
 
 We'll also be using \textbf{\emph{FAST}} (\emph{Famix Abstract Syntax Tree})
 models to represent the systems studied in this paper. The \emph{FAST} models
@@ -88,7 +88,7 @@ developed in the Moose reverse engineering environment
 
 
 \subsection{Motivation and research questions}
-In Nikanjam et al. study, developers identified not only the proposed design smells but also their relevance and hence the value of avoiding them. However, there is no automatic smell detection system in the literature. In this paper, we propose such a system, which will enable smell detection in CNN deep learning programs. Moreover, our system will cover the most widely used open-source Frameworks on the market. To this aim, we have defined the following research questions:\\
+In the Nikanjam et al. study, developers identified not only the proposed design smells but also their relevance and hence the value of avoiding them. However, there is no automatic smell detection system in the literature. In this paper, we propose such a system, which will enable smell detection in CNN deep learning programs. Moreover, our system will cover the most widely used open-source Frameworks on the market. To this aim, we have defined the following research questions:\\
 
 \emph{\\RQ1:\RQOne} % La technique de détection
 
