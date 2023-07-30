@@ -31,6 +31,7 @@
 \usepackage[table,xcdraw]{xcolor}
 
 
+
 % Keywords command
 \providecommand{\keywords}[1]
 {
@@ -43,45 +44,67 @@
 \renewcommand{\paragraph}[1]{\noindent\textsf{#1}.}
 \newcommand{\etal}{et~al.\xspace}
 \newcommand{\newtext}[1]{\textcolor{blue}{#1}}
+
+% Reviewing commands
 \newcommand{\Aurel}[1]{\textcolor{brown}{{\it [Aurel: #1]}}}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO: #1}}}
+
+
 \newcommand{\add}[1]{\textcolor{red}{{\it $<$#1$>$}}}
-\newcommand*{\RQOne}{ What Ethereum smart contract code refactoring catalog is known to date? }
-\newcommand*{\RQTwo}{ Does code refactoring change the gas price? }
-\newcommand*{\RQThree}{ What kinds of refactoring impact the gas price? }
+\newcommand*{\RQOne}{ Peut-on détecter les odeurs de conception dans les programmes d'apprentissage profond CNN avec la méta-modélisation? }
+\newcommand*{\RQTwo}{ Quels sont les odeurs de conception les plus répandu dans les programmes
+d'apprentissage profond CNN? }
+\newcommand*{\RQThree}{ Exist-il des lien entre les odeurs de conception dans les programmes? }
 
 
 
-\title{Convolutional Neural Network programs meta-modeling for automatic detection of design smells}
-\author{Aurel Ikama$^{1}$
-    \\
-    \emph{$^{1}$ Dep. of Computer and Software Engineering, Polytechnique Montréal, Montréal}}
+\title{Convolutional Neural Network programs modeling for automatic detection of design smells}
+% \author{Aurel Ikama$^{1}$, Foutse Khomh$^{1}$, Heng Li$^{1}$
+%     \\
+% \emph{$^{1}$ Dep. of Computer and Software Engineering, Polytechnique Montréal,
+% Montréal}}
+    
+
+\author{Anonymous Author(s)}
+
 
 \begin{document}
 \maketitle
 
-\input{abstract}
+\input{section/abstract}
 
 
 
-
+% Introduction
 \section{Introduction}
 \input{section/introduction}
+
+% Background
+\section{Background}
+\input{section/background}
+
+
+% Study Design
 \section{Study Design}
 \input{section/studymethod}
+
+% Case Study Results
 \section{Case Study Results}
 \input{section/result}
 
-
-
+% Discussion
 \section{Discussion}
 \input{section/discussion}
 
+% Threats to validity
 \section{Threats to validity}
-\input{section/Threats}
+\input{section/threats}
 
-\section{Related Work}
-\input{section/RelatedWork}
+% Limitations and Future Work
+\section{Limitations and Future Work}
+\input{section/limitation}
 
+% Conclusion
 \section{Conclusion}
 \input{section/conclusion}
 

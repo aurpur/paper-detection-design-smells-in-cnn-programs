@@ -1,15 +1,65 @@
-\label{threats}
-This section discusses threats to the validity of our study following the guidelines for case study research.
-\subsection{Threats to construct validity}
+\label{sec:threats}
+Notre étude est sujet de plusieurs menaces à la validité. Dans cette section
+nous présonterons ces menaces et les stratégies que nous avons utilisé pour les
+mitiger.\\
+
+Premièrement, notre étude est sujet de la menace de validité de construction. En
+effet le modèle \emph{FAST} généré par notre approche pourrait ne pas être correct et conforme au métamodèle défini ou encore mal
+représenter le programme d'apprentissage profond en entrée. Pour mitiger cette
+menace, nous avons mis en place des tests unitaires pour chaque méthode
+visiteur. Ces tests unitaires nous permettent de vérifier que les méthodes
+implémentées dans l'importateur son correctement implémentées et que le modèle
+\emph{FAST} généré est conforme au métamodèle défini. De plus, nous avons implémenté
+pour un ensemble de données de test (des exemples synthétiques) des tests
+fonctionnels (Smock Testing) pour vérifier que le modèle \emph{FAST} généré représente bien le
+programme d'apprentissage profond en entrée.\\
+
+Deuxièmement, notre étude est sujet de la menace de validité interne. Il
+subsiste un risque que les conclusions obtenues ne soient pas causées par le
+code source en entrée. Pour mitiger cette menace, nous avons en plus de tester
+notre système sur des exemples synthétiques, nous avons utilisé des projets
+réels collectés dans Github pour valider le fonctionnement de notre système.\\
+
+Troisièmement, notre étude est sujet de la menace de validité externe. Il y a un
+risque que les résultats obtenus ne soient pas généralisables. Pour mitiger
+cette menace, nous avons collecté aléatoirement des projets dans Github afin de
+représenter différente application de l'architecture CNN.\\
+
+Quatrièmement, notre étude est sujet de la menace de validité de fiabilité. Il y
+a enfin un risque que les résultats obtenus ne soient pas reproductibles. Pour
+mitiger cette menace, nous avons en plus d'utilisé des projets de différentes
+applications de l'architecture CNN, utilisé des projets implémentées dans les
+trois librairies open source les plus utilisées dans l'industrie (Tensorflow, Pytorch et Keras).
 
 
 
-\subsection{Threats to internal validity}
 
 
 
 
-\subsection{Threats to External validity}
 
 
-\subsection{Threats to reliability validity} 
+
+
+
+
+
+
+
+
+
+
+% This section discusses threats to the validity of our study following the guidelines for case study research.
+% \subsection{Threats to construct validity}
+
+
+
+% \subsection{Threats to internal validity}
+
+
+
+
+% \subsection{Threats to External validity}
+
+
+% \subsection{Threats to reliability validity}
