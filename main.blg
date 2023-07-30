@@ -8,7 +8,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bibliography/citations.bib
-Warning--I didn't find a database entry for "nikanjam2019deep"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -17,7 +16,7 @@ Warning--empty year in cernymicroservice
 Done.
 You've used 24 entries,
             4087 wiz_defined-function locations,
-            960 strings with 12010 characters,
+            959 strings with 11994 characters,
 and the built_in function-call counts, 17250 in all, are:
 = -- 1354
 > -- 422
@@ -56,4 +55,4 @@ warning$ -- 1
 while$ -- 78
 width$ -- 26
 write$ -- 243
-(There were 2 warnings)
+(There was 1 warning)
