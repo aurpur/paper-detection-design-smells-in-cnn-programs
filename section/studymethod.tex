@@ -40,7 +40,7 @@ The designed smell detection system thus developed was used on a set of deep lea
 The search query type \emph{search code} returns a set of information about the
 repository and the file containing the searched keywords. This returns a raw
 data set of 9572 different Github repositories. We then randomly select a subset
-of 10\% of our raw data set, i.e. 958 Github repositories, in order to optimize
+of 10\% of our raw data set, i.e. 958 Github repositories, to optimize
 the manual filtering step below. From this subset, we then filter the
 directories according to the following criteria:
 (1) the number of commits ($\geq$ 100), (2) the number of stars ($\geq$ 100),
@@ -69,11 +69,11 @@ programs.\\
 \label{sec:DataProcessing}
 The process of collecting deep learning programs has provided us with a set of deep learning programs on which we will apply our design smell detection system. However, it's important to note that the deep learning programs in our case are programs written solely in the Python language. It is therefore essential to note that, the design smell detection system developed in this paper is a system that is only capable of detecting design smells in deep learning programs written in the Python language.\\
 
-In order to answer the research question \emph{RQ1}, we have developed a system for detecting design smells in deep learning programs. This system is divided into three parts. The first part deals with the modeling of deep learning programs. The second part concerns the detection of design smells in deep learning programs. The third is the analysis of detection results.\\
+To answer the research question \emph{RQ1}, we have developed a system for detecting design smells in deep learning programs. This system is divided into three parts. The first part deals with the modeling of deep learning programs. The second part concerns the detection of design smells in deep learning programs. The third is the analysis of detection results.\\
 
 \subsubsection{Modeling deep learning programs}
 \label{sec:modelingDeepLearningPrograms}
-Modeling deep learning programs is the first step in the design smell detection process. This involves transforming the source code of the collected deep learning programs into an intermediate model that will be used for design smell detection. This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig:fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to symplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the original source code and includes functions for navigation and transformation.\\
+Modeling deep learning programs is the first step in the design smell detection process. This involves transforming the source code of the collected deep learning programs into an intermediate model that will be used for design smell detection. This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig:fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to simplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the source code and includes functions for navigation and transformation.\\
 
 \begin{figure*}[h]
   \centering
