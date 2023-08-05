@@ -75,13 +75,7 @@ To answer the research question \emph{RQ1}, we have developed a system for detec
 \label{sec:modelingDeepLearningPrograms}
 Modeling deep learning programs is the first step in the design smell detection
 process. This involves transforming the source code of the collected deep
-learning programs into a model that will be used for design smell detection.
-
-The source code is first transformed by an intermediate model.
-
-
-
-This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig: fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to simplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the source code and includes functions for navigation and transformation.\\
+learning programs into a model that will be used for design smell detection. The source code is first transformed by an intermediate model. This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig:fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to simplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the source code and includes functions for navigation and transformation.\\
 
 \begin{figure*}[h]
   \centering
