@@ -61,15 +61,15 @@ categories as follows:
         \toprule
         \multicolumn{1}{c}{\textbf{Design Smell}} &
         \multicolumn{1}{c}{\textbf{Description}}                                                                                                                 \\ \midrule
-        Non-expanding feature map                 &
+        DS1: Non-expanding feature map            &
         \begin{tabular}[c]{@{}l@{}}Keep the same number of features or reduce it as the architecture becomes deeper.\end{tabular}                                \\
-        Losing local correlation                  &
+        DS2: Losing local correlation             &
         \begin{tabular}[c]{@{}l@{}}Start with a relatively large window size for spatial filtering and maintain it for all convolutional layers.\end{tabular}    \\
-        Heterogeneous blocks of CNNs              &
+        DS3: Heterogeneous blocks of CNNs         &
         \begin{tabular}[c]{@{}l@{}}Build a deeper model by stacking only a set of convolution and pooling layers without appropriate configuration.\end{tabular} \\
-        Too much down-sampling                    &
+        DS4: Too much down-sampling               &
         \begin{tabular}[c]{@{}l@{}}Pooling right after each convolutional layer, especially for the first layers.\end{tabular}                                   \\
-        Non-dominating down-sampling              &
+        DS5: Non-dominating down-sampling         &
         Use of average-pooling.                                                                                                                                  \\ \bottomrule
     \end{tabular}
 \end{table*}
@@ -81,12 +81,12 @@ categories as follows:
     \label{tab:convolutionalSmellsReg}
     \begin{tabular}{ll}
         \toprule
-        \multicolumn{1}{c}{\textbf{Design Smell}} & \multicolumn{1}{c}{\textbf{Description}}
+        \multicolumn{1}{c}{\textbf{Design Smell}}     & \multicolumn{1}{c}{\textbf{Description}}
         \\ \midrule
-        Useless Dropout                           & Using Dropout before Pooling Layers.                                                                                \\
-        Bias with Batchnorm                       &
+        DS6: Useless Dropout                          & Using Dropout before Pooling Layers.                                                                            \\
+        DS7: Bias with Batchnorm                      &
         \begin{tabular}[c]{@{}l@{}}Keep the bias values in the layers when using Batchnorm. FNN learning layers are biased with different initializations.\end{tabular} \\
-        Non-representative Statistics Estimation  & Use of Batchnorm after Dropout.                                                                                     \\ \bottomrule
+        DS8: Non-representative Statistics Estimation & Use of Batchnorm after Dropout.                                                                                 \\ \bottomrule
     \end{tabular}
 \end{table*}
 
