@@ -73,7 +73,9 @@ To answer the research question \emph{RQ1}, we have developed a system for detec
 
 \subsubsection{Modeling deep learning programs}
 \label{sec:modelingDeepLearningPrograms}
-Modeling deep learning programs is the first step in the design smell detection process. This involves transforming the source code of the collected deep learning programs into an intermediate model that will be used for design smell detection. This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig:fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to simplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the source code and includes functions for navigation and transformation.\\
+Modeling deep learning programs is the first step in the design smell detection
+process. This involves transforming the source code of the collected deep
+learning programs into a model that will be used for design smell detection. The source code is first transformed by an intermediate model. This intermediate model is a \emph{Famix Abstract Syntax Tree} (\emph{FAST}) model \ref{fig:fast}. The \emph{FAST} model is used to represent programs as syntax trees. It inherits from the abstract source code representation \emph{Famix} developed in the \emph{Pharo} programming language. With \emph{Famix}, source code is represented in object form and according to a defined metamodel to simplify the analysis and representation of complex programs. A \emph{Famix} model is a language-agnostic representation of the source code and includes functions for navigation and transformation.\\
 
 \begin{figure*}[h]
   \centering
@@ -82,7 +84,19 @@ Modeling deep learning programs is the first step in the design smell detection 
   \label{fig:fast}
 \end{figure*}
 
-Transformation of the collected source code into the \emph{FAST} model is as follows. Each collected project is cloned into a local directory. Its source code is then parsed using the Python library \emph{ast.py}. This library transforms the source code into a syntax tree in \emph{json} form. The resulting \emph{json} is then transformed into a \emph{FAST} model using an importer developed under the visitor design pattern. Visitors are functions that can navigate a syntax tree to perform specific operations on its nodes. In our case, we have developed visitors that enable us to browse the syntax tree (\emph{json}) and transform each node of this tree into a \emph{FAST} entity.\\
+Transformation of the collected source code into the \emph{FAST} model is as
+follows. Each collected project is cloned into a local directory. Its source
+code is then parsed using the Python library \emph{ast.py}. This library
+transforms the source code into a syntax tree in \emph{json} form. The resulting
+\emph{json} is then transformed into a \emph{FAST} model using an importer
+developed under the visitor design pattern. Visitors are functions that can
+navigate a syntax tree to perform specific operations on its nodes. In our case,
+we have developed visitors that enable us to browse the syntax tree
+(\emph{json}) and transform each node of this tree into a \emph{FAST} entity.
+
+After transforming the source code into the \emph{FAST} model, we proceed to a
+second transformation, which consists of transforming the \emph{FAST} model into
+a CNN model defined by a metamodel CNN \ref{fig:meta-model-cnn}. The transformation is also performed using visitors.\\
 
 The diagram \ref{fig:modelling} illustrates the modeling process for deep learning programs.\\
 
@@ -94,9 +108,49 @@ The diagram \ref{fig:modelling} illustrates the modeling process for deep learni
 \end{figure*}
 
 
+
+\begin{figure*}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figure/meta-model-cnn.png}
+  \caption{\emph{CNN metamodel illustration.}}
+  \label{fig:meta-model-cnn}
+\end{figure*}
+
+
 \subsubsection{Design smell detection}
 \label{sec:designSmellDetection}
-The \emph{FAST} model obtained from the modeling of deep learning programs is then used for design smell detection. This step consists of browsing the \emph{FAST} model and applying design smell detection rules. These rules are defined in the \emph{Pharo} programming language. One or more rules can be applied to a node in the syntax tree to detect a design smell.\\
+The CNN model obtained from the modeling of deep learning programs is then used
+for design smell detection. This step consists of browsing the CNN model and
+applying design smell detection rules \ref{lst:rules}. These rules are defined in the
+\emph{Pharo} programming language. One or more rules can be applied to a node in
+the syntax tree to detect a design smell.\\
+
+\begin{lstlisting}[language=Python, caption=\emph{Rules examples for detecting design smells in CNN programs.}\\, label=lst:rules]
+
+  #DS1: Non-expanding feature map
+
+self assert: model class equals: CnnModel.
+convolutions := model allWithType: CnnConvolution.
+self assert: convolutions filters isDecrease.
+self assert: convolutions filters isSame
+
+
+  #DS2 : Losing local correlation
+
+self assert: model class equals: CnnModel.
+convolutions := model allWithType: CnnConvolution.
+self assert: convolutions kernel_sizes isDecrease.
+self assert: convolutions first kernel_size greaterThan: 4.
+
+  #DS3 : Heterogeneous blocks of CNNs
+
+self assert: model class equals: CnnModel.
+convolutions := model allWithType: CnnConvolution.
+self assert: convolutions getHomogeneousNumber greaterThan 1.
+
+\end{lstlisting}
+
+
 
 % Le schema \ref{fig:rules} est un exemple de règle
 % permettant de détecter l'odeur de conception numéro 5 - \emph{Non-dominating down-sampling}.\\

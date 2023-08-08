@@ -1,0 +1,29 @@
+DS 1: Non-expanding feature map
+
+self assert: model class equals: CnnModel.
+convolutions := model allWithType: CnnConvolution.
+self assert: convolutions filters isDecrease.
+self assert: convolutions filters isSame
+
+
+DS 2 : Losing local correlation
+
+self assert: model class equals: CnnModel.
+convolutions := model allWithType: CnnConvolution.
+self assert: convolutions kernel_sizes isDecrease.
+self assert: convolutions first kernel_size greaterThan: 4.
+
+DS 3 : Heterogeneous blocks of CNNs
+
+self assert: model class equals: CnnModel.
+convolutions := model allWithType: CnnConvolution.
+self assert: convolutions getHomogeneousNumber greaterThan 1.
+
+
+
+
+
+
+
+
+
